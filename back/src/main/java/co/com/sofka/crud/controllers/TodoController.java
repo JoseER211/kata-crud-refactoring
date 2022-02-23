@@ -5,6 +5,7 @@ import co.com.sofka.crud.models.Todo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+//Hace el llamado del dato y lo pasa a la interfaz
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class TodoController {
@@ -27,7 +28,7 @@ public class TodoController {
         if(todo.getId() != null){
             return service.save(todo);
         }
-        throw new RuntimeException("No existe el id para actualziar");
+        throw new RuntimeException("No existe el id para actualizar");
     }
 
     @DeleteMapping(value = "api/{id}/todo")

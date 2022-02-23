@@ -6,8 +6,14 @@ import javax.persistence.Id;
 
 @Entity
 public class Todo {
+
+    //identificador
+
     @Id
     @GeneratedValue
+
+    // propiedades de la entidad
+
     private Long id;
     private String name;
     private boolean completed;

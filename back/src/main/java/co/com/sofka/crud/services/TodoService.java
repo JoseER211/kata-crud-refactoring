@@ -5,6 +5,8 @@ import co.com.sofka.crud.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+//Gestiona el acceso al dato
+
 @Service
 public class TodoService {
 
