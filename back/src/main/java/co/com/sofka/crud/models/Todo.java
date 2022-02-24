@@ -1,31 +1,32 @@
 package co.com.sofka.crud.models;
 
+
+import com.sun.istack.NotNull;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Todo {
 
-    //identificador
+    // propiedades de la entidad
 
     @Id
     @GeneratedValue
-
-    // propiedades de la entidad
-
     private Long id;
+
+    @NotNull
     private String name;
+
     private boolean completed;
-    private String groupListId;
 
-    public String getGroupListId() {
-        return groupListId;
-    }
-
-    public void setGroupListId(String groupListId) {
-        this.groupListId = groupListId;
-    }
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Catalogue catalogue;
 
     public Long getId() {
         return id;
@@ -49,5 +50,13 @@ public class Todo {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public Catalogue getCategory() {
+        return catalogue;
+    }
+
+    public void setCategory(Catalogue catalogue) {
+        this.catalogue = catalogue;
     }
 }
