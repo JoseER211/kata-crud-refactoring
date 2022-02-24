@@ -1,18 +1,26 @@
 import React, { useContext, useReducer, useEffect, useRef, useState, createContext } from 'react';
 
 const HOST_API = "http://localhost:8080/api";
+
+//Estados iniciales del store
 const initialState = {
   todo: { list: [], item: {} }
 };
+
+//Indica que store es un contexto
 const Store = createContext(initialState)
 
-
+//Componente formulario
 const Form = () => {
+  //useRef identifica las propiedades de un componente específico
   const formRef = useRef(null);
   const { dispatch, state: { todo } } = useContext(Store);
   const item = todo.item;
+
+  //define el estado interno
   const [state, setState] = useState(item);
 
+  //Agrega la lista
   const onAdd = (event) => {
     event.preventDefault();
 
@@ -63,6 +71,7 @@ const Form = () => {
       });
   }
 
+  //forma y función del formulario
   return <form ref={formRef}>
     <input
       type="text"
@@ -79,11 +88,15 @@ const Form = () => {
 
 
 const List = () => {
+  //Contexto store donde se guardan los estados de la aplicación
   const { dispatch, state: { todo } } = useContext(Store);
   const currentList = todo.list;
 
+  
   useEffect(() => {
+    //Consulta cualquier recurso que está en la web(http)
     fetch(HOST_API + "/todos")
+    //Se lleva a un tipo Json para el tratamiento del código
       .then(response => response.json())
       .then((list) => {
         dispatch({ type: "update-list", list })
@@ -120,11 +133,13 @@ const List = () => {
       .then((todo) => {
         dispatch({ type: "update-item", item: todo });
       });
-  };
+  };  
+
 
   const decorationDone = {
     textDecoration: 'line-through'
   };
+  //plantilla del listado
   return <div>
     <table >
       <thead>
@@ -150,7 +165,7 @@ const List = () => {
 }
 
 
-
+// Implementa la lógica de los estados
 function reducer(state, action) {
   switch (action.type) {
     case 'update-item':
@@ -188,9 +203,14 @@ function reducer(state, action) {
   }
 }
 
+// Conecta diferentes componentes entre sí
 const StoreProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  /*El estado es como está actualmente el contexto, 
+  mientras que el dispatch notifica que cambios
+  suceden en el contexto*/
+  
   return <Store.Provider value={{ state, dispatch }}>
     {children}
   </Store.Provider>
