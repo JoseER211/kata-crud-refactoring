@@ -52,11 +52,11 @@ public class Todo {
         this.completed = completed;
     }
 
-    public Catalogue getCategory() {
+    public Catalogue getCatalogue() {
         return catalogue;
     }
 
-    public void setCategory(Catalogue catalogue) {
+    public void setCatalogue(Catalogue catalogue) {
         this.catalogue = catalogue;
     }
 }
