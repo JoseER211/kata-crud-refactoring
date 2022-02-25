@@ -11,7 +11,7 @@ function catalogueReducer(state, action) {
             const todoUpList = state.catalogue;
             todoUpList.list = action.list;
             return { ...state, catalogue: todoUpList }
-        case 'add-cataloguey':
+        case 'add-catalogue':
             const todoUp = state.catalogue.list;
             todoUp.push(action.item);
             return { ...state, catalogue: { list: todoUp} }

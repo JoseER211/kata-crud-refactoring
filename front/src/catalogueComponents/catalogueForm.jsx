@@ -4,7 +4,7 @@ import Store from '../storeProvider'
 
 const HOST_API = "http://localhost:8080/api";
 
-const categoryForm = () => {
+const catalogueForm = () => {
 
     const formRef = useRef(null);
     const { dispatch, state: { catalogue } } = useContext(Store);
@@ -52,4 +52,4 @@ const categoryForm = () => {
     </div>
 }
 
-export default categoryForm;
+export default catalogueForm;

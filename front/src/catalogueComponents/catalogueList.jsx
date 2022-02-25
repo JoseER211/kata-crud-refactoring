@@ -1,8 +1,8 @@
 import React from 'react'
 import { useContext, useEffect } from "react"
 import Store from '../storeProvider'
-import todoList from '../todo/todoList'
-import todoForm from '../todo/todoForm'
+import todoList from '../todoComponents/todoList'
+import todoForm from '../todoComponents/todoForm'
 
 const HOST_API = "http://localhost:8080/api";
 
