@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TodoForm from "./TodoForm";
 import TodoView from "./TodoView";
 
+//Contenedor de la vista
 class ToDoContainer extends Component {
   render() {
     return (

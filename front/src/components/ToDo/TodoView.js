@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Store } from '../../stateManagement/store/StoreProvider';
 import { HOST_API } from '../../App'
 
+//Mapeo de la lista
 const TodoView = () => {
     const { dispatch, state: { todo } } = useContext(Store);
     const currentList = todo.list;

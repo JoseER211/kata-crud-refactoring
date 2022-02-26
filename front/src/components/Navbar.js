@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-
+//Mapea el Navbar
 export class Navbar extends Component {
   render() {
     return (

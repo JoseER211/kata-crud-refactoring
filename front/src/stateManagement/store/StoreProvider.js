@@ -1,6 +1,7 @@
 import React, { useReducer, createContext } from 'react';
 import todoReducer from '../reducer/todoReducer';
 
+//Conecta componentes
 const initialState = {
   todo: { list: [], item: {} },
   list: { elements: []}

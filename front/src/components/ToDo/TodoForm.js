@@ -2,6 +2,7 @@ import React, { useContext, useRef, useState } from "react";
 import { Store } from "../../stateManagement/store/StoreProvider";
 import { HOST_API } from "../../App";
 
+//Mapea del formulario
 const TodoForm = () => {
   const formRef = useRef(null);
   const inputRef = useRef('');

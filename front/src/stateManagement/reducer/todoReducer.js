@@ -1,3 +1,4 @@
+//Lógica de los cambios llevados a la acción
 const todoReducer = (state, action) => {
     switch (action.type) {
   
