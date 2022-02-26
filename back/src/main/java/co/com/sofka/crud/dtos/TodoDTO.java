@@ -1,18 +1,18 @@
 package co.com.sofka.crud.dtos;
 
-import com.sun.istack.NotNull;
 
 public class TodoDTO {
 
+
     private Long id;
-
-    @NotNull
     private String name;
-
     private boolean completed;
-
-    private Long catalogueId;
-
+    public TodoDTO() {super();}
+    public TodoDTO(Long id, String name, boolean completed) {
+        this.id = id;
+        this.name = name;
+        this.completed = completed;
+    }
 
     public Long getId() {
         return id;
@@ -38,10 +38,4 @@ public class TodoDTO {
         this.completed = completed;
     }
 
-    public Long getCatalogueId() {return catalogueId;}
-
-    public void setCatalogueId(Long catalogueId) {this.catalogueId = catalogueId;}
-
 }
-
-
