@@ -5,8 +5,11 @@ import { HOST_API } from "../../App";
 //Mapea del formulario
 const TodoForm = () => {
   const formRef = useRef(null);
-  const inputRef = useRef('');
-  const { dispatch, state: { todo } } = useContext(Store);
+  const inputRef = useRef("");
+  const {
+    dispatch,
+    state: { todo },
+  } = useContext(Store);
   const item = todo.item;
   const [state, setState] = useState(item);
 
@@ -18,8 +21,8 @@ const TodoForm = () => {
       id: null,
       completed: false,
     };
-    
-    if (inputRef.current.value === '') {
+
+    if (inputRef.current.value === "") {
       alert("Ingrese la tarea");
     } else {
       fetch(HOST_API + "/todo", {
@@ -47,29 +50,27 @@ const TodoForm = () => {
       isCompleted: item.isCompleted,
     };
 
-    if (inputRef.current.value === '') {
+    if (inputRef.current.value === "") {
       alert("Ingrese la tarea");
-    }
-    else if(inputRef.current.value === item.name) {
+    } else if (inputRef.current.value === item.name) {
       alert("Ya existe una tarea con ese nombre");
-    } 
-    else {
-    fetch(HOST_API + "/todo", {
-      method: "PUT",
-      body: JSON.stringify(request),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((todo) => {
-        dispatch({ type: "update-item", item: todo });
-        setState({ name: "" });
-        formRef.current.reset();
+    } else {
+      fetch(HOST_API + "/todo", {
+        method: "PUT",
+        body: JSON.stringify(request),
+        headers: {
+          "Content-Type": "application/json",
+        },
       })
-      .catch (() => {
-        alert("Error 325 ")
-      });
+        .then((response) => response.json())
+        .then((todo) => {
+          dispatch({ type: "update-item", item: todo });
+          setState({ name: "" });
+          formRef.current.reset();
+        })
+        .catch(() => {
+          alert("Error 325 ");
+        });
     }
   };
 
