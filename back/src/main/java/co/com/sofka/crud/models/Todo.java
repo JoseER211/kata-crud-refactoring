@@ -1,8 +1,6 @@
 package co.com.sofka.crud.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
@@ -11,10 +9,12 @@ public class Todo {
     // propiedades de la entidad
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false)
     private Long id;
+
     private String name;
-    private boolean completed;
+    private Boolean completed;
 
     public Long getId() {
         return id;
@@ -32,11 +32,23 @@ public class Todo {
         this.name = name;
     }
 
-    public boolean isCompleted() {
+    public Boolean isCompleted() {
         return completed;
     }
 
-    public void setCompleted(boolean completed) {
+    public void setCompleted(Boolean completed) {
         this.completed = completed;
     }
+
+    public Todo() {
+
+    }
+
+    public Todo(Long id, String name, Boolean completed) {
+        this.id = id;
+        this.name = name;
+        this.completed = completed;
+    }
+
+
 }

@@ -3,16 +3,9 @@ package co.com.sofka.crud.dtos;
 
 public class TodoDTO {
 
-
     private Long id;
     private String name;
-    private boolean completed;
-    public TodoDTO() {super();}
-    public TodoDTO(Long id, String name, boolean completed) {
-        this.id = id;
-        this.name = name;
-        this.completed = completed;
-    }
+    private Boolean completed;
 
     public Long getId() {
         return id;
@@ -30,12 +23,11 @@ public class TodoDTO {
         this.name = name;
     }
 
-    public boolean isCompleted() {
+    public Boolean isCompleted() {
         return completed;
     }
 
-    public void setCompleted(boolean completed) {
+    public void setCompleted(Boolean completed) {
         this.completed = completed;
     }
-
 }
