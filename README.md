@@ -1,3 +1,8 @@
+# Sustentación
+Actividad del campus - Verificación de conocimiento (Kata): https://drive.google.com/file/d/1FxAD4mbiRMkFATrKs4Ka9XGMkP4G5Acg/view?usp=drivesdk
+
+
+
 # [Problema]
 
 Pueden ver los siguientes videos para poder comprender la base del código fuente dentro de este repositorio. 
