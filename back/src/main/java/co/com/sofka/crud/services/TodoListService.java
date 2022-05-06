@@ -1,11 +1,8 @@
 package co.com.sofka.crud.services;
 
-import co.com.sofka.crud.dtos.TodoDTO;
-import co.com.sofka.crud.dtos.TodoListDTO;
-import co.com.sofka.crud.models.Todo;
-import co.com.sofka.crud.models.TodoList;
 
-import java.util.List;
+import co.com.sofka.crud.dtos.TodoListDTO;
+
 
 public interface TodoListService {
 

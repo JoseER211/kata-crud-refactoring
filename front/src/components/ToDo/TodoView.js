@@ -19,14 +19,13 @@ const TodoView = () => {
   }, [dispatch]);
 
   const onDelete = (id) => {
-    if(window.confirm("¿Está seguro de eliminar la tarea?")){
+    if (window.confirm("¿Está seguro de eliminar la tarea?")) {
       fetch(HOST_API + "/" + id + "/todo", {
         method: "DELETE",
       }).then((list) => {
         dispatch({ type: "delete-item", id });
       });
     }
-    
   };
 
   const onEdit = (todo) => {

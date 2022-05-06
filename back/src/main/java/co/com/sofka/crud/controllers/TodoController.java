@@ -1,14 +1,10 @@
 package co.com.sofka.crud.controllers;
 
 import co.com.sofka.crud.dtos.TodoDTO;
-import co.com.sofka.crud.models.Todo;
+
 import co.com.sofka.crud.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 
 //Hace el llamado del dato y lo pasa a la interfaz

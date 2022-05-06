@@ -1,18 +1,17 @@
 package co.com.sofka.crud.services;
 
 import co.com.sofka.crud.dtos.ConvertDTO;
-import co.com.sofka.crud.dtos.TodoDTO;
+
 import co.com.sofka.crud.dtos.TodoListDTO;
-import co.com.sofka.crud.models.Todo;
+
 import co.com.sofka.crud.models.TodoList;
 import co.com.sofka.crud.repositories.TodoListRepository;
-import org.hibernate.mapping.Table;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+
 
 @Service
 public class TodoListServiceImpl implements TodoListService {

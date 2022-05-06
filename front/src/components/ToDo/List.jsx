@@ -1,10 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { Store } from "../../stateManagement/store/StoreProvider";
-import FormTodo from "./FormTodo";
-import ListTodo from "./ListTodo";
 import { HOST_API } from "../../App";
+import TodoForm from "./TodoForm";
 import TodoView from "./TodoView";
-import ToDoContainer from "./ToDoContainer";
 
 const List = () => {
   const {
@@ -37,14 +35,15 @@ const List = () => {
             <div>
               <h4>{todoList.name ? todoList.name.toUpperCase() : ""}</h4>
               <button
-                className="delete-button"
+                className="btn btn-danger "
                 type="button"
                 onClick={() => onDelete(todoList.id)}
               >
                 Eliminar
               </button>
             </div>
-            <ToDoContainer></ToDoContainer>
+            <TodoForm></TodoForm>
+            <TodoView></TodoView>
           </div>
         );
       })}

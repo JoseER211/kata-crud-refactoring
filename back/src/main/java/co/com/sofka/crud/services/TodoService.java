@@ -1,12 +1,6 @@
 package co.com.sofka.crud.services;
 
 import co.com.sofka.crud.dtos.TodoDTO;
-import co.com.sofka.crud.models.Todo;
-import co.com.sofka.crud.repositories.TodoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 //Gestiona el acceso al dato
 

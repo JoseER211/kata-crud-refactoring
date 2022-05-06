@@ -52,11 +52,11 @@ const ListFormTodo = () => {
             }}
           ></input>
         </div>
-        <button type="button" onClick={onAdd}>
+        <button className="btn btn-success" type="button" onClick={onAdd}>
           Nueva lista
         </button>
         <span className={errorEmpty ? "error-on-empty" : "error-off-empty"}>
-        Verifica que los carácteres son válidos 
+          Verifica que los carácteres son válidos
         </span>
       </form>
     </div>
