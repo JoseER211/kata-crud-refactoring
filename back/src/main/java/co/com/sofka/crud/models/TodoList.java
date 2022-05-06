@@ -1,13 +1,12 @@
 package co.com.sofka.crud.models;
 
+
 import javax.persistence.*;
 
 
 @Entity
-@Table(name = "todo")
-public class Todo {
-
-    // propiedades de la entidad
+@Table(name = "todolist")
+public class TodoList {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,17 +14,6 @@ public class Todo {
     private Long id;
 
     private String name;
-    private Boolean completed;
-
-    private Long todoListId;
-
-    public Long getTodolistId() {
-        return todoListId;
-    }
-
-    public void setTodolistId(Long todoListId) {
-        this.todoListId = todoListId;
-    }
 
     public Long getId() {
         return id;
@@ -41,14 +29,6 @@ public class Todo {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Boolean isCompleted() {
-        return completed;
-    }
-
-    public void setCompleted(Boolean completed) {
-        this.completed = completed;
     }
 
 

@@ -4,7 +4,7 @@ import todoReducer from '../reducer/todoReducer';
 //Conecta componentes
 const initialState = {
   todo: { list: [], item: {} },
-  list: { elements: []}
+  todoList: { list: [], item: {}},
 };
 
 export const Store = createContext(initialState)

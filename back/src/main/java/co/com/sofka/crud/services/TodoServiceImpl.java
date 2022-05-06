@@ -1,12 +1,13 @@
 package co.com.sofka.crud.services;
 
+import co.com.sofka.crud.dtos.ConvertDTO;
 import co.com.sofka.crud.dtos.TodoDTO;
 import co.com.sofka.crud.models.Todo;
 import co.com.sofka.crud.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.SecondaryTable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,61 +17,40 @@ public class TodoServiceImpl implements TodoService {
     @Autowired
     private TodoRepository todoRepository;
 
+    @Autowired
+    private ConvertDTO mapper;
+
+
     @Override
-    public TodoDTO createTodo(TodoDTO todoDTO) {
-        Todo todo = mapEntity(todoDTO);
-
-        Todo newTodo = todoRepository.save(todo);
-
-        return mapDTO(newTodo);
+    public Iterable<TodoDTO> listTodo() {
+        ArrayList<TodoDTO> todoDTOS = new ArrayList<>();
+        todoRepository.findAll().forEach(todo -> todoDTOS.add(mapper.convertTodoDTO(todo)));
+        return todoDTOS;
     }
 
     @Override
-    public List<TodoDTO> getAllTodos() {
-        List<Todo> todos = (List<Todo>) todoRepository.findAll();
-        return todos.stream().map(this::mapDTO).collect(Collectors.toList());
-
+    public TodoDTO getTodo(Long id) {
+        return mapper.convertTodoDTO(todoRepository.findById(id).orElseThrow());
     }
 
     @Override
-    public TodoDTO getTodoById(Long id) {
-        Todo todo = todoRepository.findById(id).orElseThrow();
-        return mapDTO(todo);
-    }
-
-    @Override
-    public Todo updateTodo(Todo todo) {
-       return todoRepository.save(todo);
+    public TodoDTO saveTodo(TodoDTO todoDTO) {
+        Todo todo = mapper.convertTodoEntity(todoDTO);
+        return mapper.convertTodoDTO(todoRepository.save(todo));
     }
 
     @Override
     public void deleteTodo(Long id) {
-        Todo todo = todoRepository.findById(id).orElseThrow();
-
-        todoRepository.deleteById(id);
+        todoRepository.delete(mapper.convertTodoEntity(getTodo(id)));
     }
 
-    //Convierte entidad a DTO
-    private TodoDTO mapDTO(Todo todo) {
-        TodoDTO todoDTO = new TodoDTO();
-
-        todoDTO.setId(todo.getId());
-        todoDTO.setName(todo.getName());
-        todoDTO.setCompleted(todo.isCompleted());
-
-        return todoDTO;
-    }
-
-    //Convierte DTO a entidad
-    private Todo mapEntity(TodoDTO todoDTO) {
-        Todo todo = new Todo();
-
+    @Override
+    public TodoDTO updateTodo(TodoDTO todoDTO) {
+        Todo todo = todoRepository.findById(todoDTO.getId()).orElseThrow();
         todo.setName(todoDTO.getName());
         todo.setCompleted(todoDTO.isCompleted());
-
-        return todo;
-
+        todo.setTodolistId(todoDTO.getTodoListId());
+        return mapper.convertTodoDTO(todoRepository.save(todo));
     }
-
 
 }

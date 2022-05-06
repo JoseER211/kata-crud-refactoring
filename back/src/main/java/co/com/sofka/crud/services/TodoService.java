@@ -13,15 +13,15 @@ import java.util.List;
 public interface TodoService {
 
 
-    public TodoDTO createTodo(TodoDTO todoDTO);
+    public Iterable<TodoDTO> listTodo();
 
-    public List<TodoDTO> getAllTodos();
+    public TodoDTO getTodo(Long id);
 
-    public TodoDTO getTodoById(Long id);
-
-    public Todo updateTodo(Todo todo);
+    public TodoDTO saveTodo(TodoDTO todoDTO);
 
     public void deleteTodo(Long id);
+
+    public TodoDTO updateTodo(TodoDTO todoDTO);
 
 
     /** @Autowired private TodoRepository repository;

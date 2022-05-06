@@ -20,33 +20,33 @@ public class TodoController {
     private TodoService todoService;
 
 
-    @PostMapping(value = "api/todo")
-    public ResponseEntity<TodoDTO> saveTodo(@RequestBody TodoDTO todoDTO) {
-        return new ResponseEntity<>(todoService.createTodo(todoDTO), HttpStatus.CREATED);
-    }
-
     @GetMapping(value = "api/todos")
-    public List<TodoDTO> listTodos() {
-        return todoService.getAllTodos();
+    public Iterable<TodoDTO> listTodo() {
+        return todoService.listTodo();
     }
 
     @GetMapping(value = "api/{id}/todo")
-    public ResponseEntity<TodoDTO> getTodoById(@PathVariable(name = "id") Long id) {
-        return ResponseEntity.ok(todoService.getTodoById(id));
+    public TodoDTO getTodo(@PathVariable("id") Long id) {
+        return todoService.getTodo(id);
+    }
 
+    @PostMapping(value = "api/todo")
+    public TodoDTO saveTodo(@RequestBody TodoDTO todoDTO) {
+        return todoService.saveTodo(todoDTO);
     }
 
     @PutMapping(value = "api/todo")
-    public Todo updateTodo(@RequestBody Todo todo) {
-        return todoService.updateTodo(todo);
+    public TodoDTO updateTodo(@RequestBody TodoDTO todoDTO) {
+        if (todoDTO.getId() != null) {
+            return todoService.updateTodo(todoDTO);
+        }
+        throw new RuntimeException("No existe el id");
     }
 
-    @DeleteMapping("api/{id}/todo")
-    public ResponseEntity<String> deleteTodo(@PathVariable(name = "id") Long id) {
+    @DeleteMapping(value = "api/{id}/todo")
+    public void deleteTodo(@PathVariable("id") Long id) {
         todoService.deleteTodo(id);
-        return new ResponseEntity<>("Tarea eliminada con éxito", HttpStatus.OK);
     }
-
 
     /**@Autowired private TodoService service;
 
