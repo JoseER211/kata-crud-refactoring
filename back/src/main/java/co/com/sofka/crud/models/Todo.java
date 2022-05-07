@@ -1,5 +1,8 @@
 package co.com.sofka.crud.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+
 import javax.persistence.*;
 
 
@@ -17,15 +20,6 @@ public class Todo {
     private String name;
     private Boolean completed;
 
-    private Long todoListId;
-
-    public Long getTodolistId() {
-        return todoListId;
-    }
-
-    public void setTodolistId(Long todoListId) {
-        this.todoListId = todoListId;
-    }
 
     public Long getId() {
         return id;

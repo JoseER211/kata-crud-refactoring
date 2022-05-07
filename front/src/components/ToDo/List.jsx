@@ -20,20 +20,26 @@ const List = () => {
   }, [dispatch]);
 
   const onDelete = (id) => {
-    fetch(HOST_API + "/" + id + "/deleteTodoList", {
-      method: "DELETE",
-    }).then((todoList) => {
-      dispatch({ type: "delete-todoList", id });
-    });
-  };
+    if (window.confirm("¿Está seguro de eliminar la lista?")) {
+      fetch(HOST_API + "/" + id + "/deleteTodoList", {
+        method: "DELETE",
+      }).then((todoList) => {
+        dispatch({ type: "delete-todoList", id });
+      });
+    };
+    }
+   
 
   return (
     <div className="principal-container">
-      {currentList.map((todoList, index) => {
+      {currentList.map((todoList) => {
         return (
           <div key={todoList.id}>
-            <div>
-              <h4>{todoList.name ? todoList.name.toUpperCase() : ""}</h4>
+            <div className="text-center">
+
+              <h2>{todoList.name}</h2>
+              </div>
+              <div>
               <button
                 className="btn btn-danger "
                 type="button"
@@ -41,8 +47,10 @@ const List = () => {
               >
                 Eliminar
               </button>
-            </div>
-            <TodoForm></TodoForm>
+              </div>
+              
+           
+            <TodoForm ></TodoForm>
             <TodoView></TodoView>
           </div>
         );

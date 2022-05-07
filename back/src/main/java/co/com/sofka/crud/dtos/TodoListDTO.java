@@ -1,10 +1,15 @@
 package co.com.sofka.crud.dtos;
 
 
+import co.com.sofka.crud.models.Todo;
+
+import java.util.Set;
+
 public class TodoListDTO {
 
     private Long id;
     private String name;
+
 
     public TodoListDTO() {
         super();
@@ -30,6 +35,7 @@ public class TodoListDTO {
     public void setName(String name) {
         this.name = name;
     }
+
 
 }
 

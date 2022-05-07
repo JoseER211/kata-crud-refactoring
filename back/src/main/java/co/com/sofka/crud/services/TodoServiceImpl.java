@@ -48,7 +48,6 @@ public class TodoServiceImpl implements TodoService {
         Todo todo = todoRepository.findById(todoDTO.getId()).orElseThrow();
         todo.setName(todoDTO.getName());
         todo.setCompleted(todoDTO.isCompleted());
-        todo.setTodolistId(todoDTO.getTodoListId());
         return mapper.convertTodoDTO(todoRepository.save(todo));
     }
 

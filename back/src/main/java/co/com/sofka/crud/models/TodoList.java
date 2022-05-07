@@ -1,11 +1,15 @@
 package co.com.sofka.crud.models;
 
 
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
-@Table(name = "todolist")
+@Table(name = "todoList")
 public class TodoList {
 
     @Id
@@ -14,6 +18,7 @@ public class TodoList {
     private Long id;
 
     private String name;
+
 
     public Long getId() {
         return id;

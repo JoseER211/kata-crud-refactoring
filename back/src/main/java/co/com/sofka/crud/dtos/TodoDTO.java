@@ -1,33 +1,25 @@
 package co.com.sofka.crud.dtos;
 
 
+import co.com.sofka.crud.models.TodoList;
 public class TodoDTO {
 
     private Long id;
     private String name;
     private Boolean completed;
-    private Long todoListId;
-
 
     public TodoDTO() {
         super();
     }
 
 
-    public TodoDTO(Long id, String name, Boolean completed, Long todoListId) {
+    public TodoDTO(Long id, String name, Boolean completed) {
         this.id = id;
         this.name = name;
         this.completed = completed;
-        this.todoListId = todoListId;
+
     }
 
-    public Long getTodoListId() {
-        return todoListId;
-    }
-
-    public void setTodoListId(Long todoListId) {
-        this.todoListId = todoListId;
-    }
 
     public Long getId() {
         return id;
