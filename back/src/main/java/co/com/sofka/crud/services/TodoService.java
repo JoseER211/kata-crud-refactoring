@@ -2,60 +2,51 @@ package co.com.sofka.crud.services;
 
 import co.com.sofka.crud.dtos.TodoDTO;
 
-//Gestiona el acceso al dato
+/**
+ * Representa los métodos que implementan el servicio del CRUD.
+ *
+ * @author Jose David Echavarria Ruiz.
+ */
 
 public interface TodoService {
 
-
+    /**
+     * Obtiene todos los objetos.
+     *
+     * @return Lista con todos los objetos.
+     */
     public Iterable<TodoDTO> listTodo();
 
+    /**
+     * Obtiene el objeto por el id.
+     *
+     * @param id del objeto.
+     * @return Objeto por el id.
+     */
     public TodoDTO getTodo(Long id);
 
+    /**
+     * Guarda los objetos ingresados.
+     *
+     * @param todoDTO objeto ingresado.
+     * @return Objetos guardados.
+     */
     public TodoDTO saveTodo(TodoDTO todoDTO);
 
+    /**
+     * Elimina un objeto por el id.
+     *
+     * @param id del objeto.
+     */
     public void deleteTodo(Long id);
 
+    /**
+     * Actualiza el objeto ingresado.
+     *
+     * @param todoDTO objeto ingresado.
+     * @return Objeto actualizado.
+     */
     public TodoDTO updateTodo(TodoDTO todoDTO);
 
-
-    /** @Autowired private TodoRepository repository;
-
-    public List<TodoDTO> getAll(){
-
-    }
-
-
-    public Iterable<Todo> list() {
-    return repository.findAll();
-    }
-
-    public Todo save(Todo todo) {
-    return repository.save(todo);
-    }
-
-    public Todo update(Todo todo) {
-    try {
-    isEqualTodo(todo);
-    } catch (RuntimeException e) {
-    System.out.println(e.getMessage());
-    }
-    return repository.save(todo);
-    }
-
-    public void delete(Long id) {
-    repository.delete(get(id));
-    }
-
-    public Todo get(Long id) {
-    return repository.findById(id).orElseThrow();
-    }
-
-    public void isEqualTodo(Todo todo) {
-    var todoUpdate = repository.findById(todo.getId()).orElseThrow();
-
-    if (todoUpdate.getName().equals(todo.getName())) {
-    throw new RuntimeException("Ya existe una tarea con ese nombre");
-    }
-    }*/
 
 }

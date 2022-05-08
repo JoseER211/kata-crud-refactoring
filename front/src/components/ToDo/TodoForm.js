@@ -2,7 +2,10 @@ import React, { useContext, useRef, useState } from "react";
 import { Store } from "../../stateManagement/store/StoreProvider";
 import { HOST_API } from "../../App";
 
-//Mapea del formulario
+/**
+ * Representa la vista y el manejo del formulario de los Todos. 
+ * @returns Vista del formulario de los Todos.
+ */
 const TodoForm = () => {
   const formRef = useRef(null);
   const inputRef = useRef("");

@@ -1,12 +1,14 @@
 package co.com.sofka.crud.dtos;
 
-
-import co.com.sofka.crud.models.Todo;
-
-import java.util.Set;
-
+/**
+ * Representa el DTO de TodoList.
+ *
+ * @author Jose David Echavarria Ruiz.
+ */
 public class TodoListDTO {
-
+    /**
+     * Propiedades de TodoListDTO.
+     */
     private Long id;
     private String name;
 

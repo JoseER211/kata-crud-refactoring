@@ -1,4 +1,9 @@
-//Lógica de los cambios llevados a la acción
+/**
+ * Representa una acción dependiendo de los cambios de los datos.
+ * @param state entrada de los datos
+ * @param action acciones a realizar.
+ * @returns
+ */
 const todoReducer = (state, action) => {
   switch (action.type) {
     case "update-item":

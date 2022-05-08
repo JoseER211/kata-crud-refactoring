@@ -1,9 +1,16 @@
 package co.com.sofka.crud.dtos;
 
 
-import co.com.sofka.crud.models.TodoList;
+/**
+ * Representa el DTO de la entidad Todo
+ *
+ * @author Jose David Echavarria Ruiz.
+ */
 public class TodoDTO {
 
+    /**
+     * Propiedades de TodoDTO.
+     */
     private Long id;
     private String name;
     private Boolean completed;

@@ -6,8 +6,12 @@ import co.com.sofka.crud.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Hace el llamado de los métodos aplicados a la entidad y los pasa a la interfaz.
+ *
+ * @author Jose David Echavarria Ruiz.
+ */
 
-//Hace el llamado del dato y lo pasa a la interfaz
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class TodoController {
@@ -15,22 +19,44 @@ public class TodoController {
     @Autowired
     private TodoService todoService;
 
-
+    /**
+     * Obtiene todos los objetos.
+     *
+     * @return objetos.
+     */
     @GetMapping(value = "api/todos")
     public Iterable<TodoDTO> listTodo() {
         return todoService.listTodo();
     }
 
+    /**
+     * Obtiene los objetos por el id.
+     *
+     * @param id del objeto.
+     * @return objeto por el id.
+     */
     @GetMapping(value = "api/{id}/todo")
     public TodoDTO getTodo(@PathVariable("id") Long id) {
         return todoService.getTodo(id);
     }
 
+    /**
+     * Guarda los objetos ingresados.
+     *
+     * @param todoDTO objeto ingresado.
+     * @return Objeto ingresado.
+     */
     @PostMapping(value = "api/todo")
     public TodoDTO saveTodo(@RequestBody TodoDTO todoDTO) {
         return todoService.saveTodo(todoDTO);
     }
 
+    /**
+     * Actualiza los objetos ingresados.
+     *
+     * @param todoDTO objeto ingresado.
+     * @return Objeto actualizado
+     */
     @PutMapping(value = "api/todo")
     public TodoDTO updateTodo(@RequestBody TodoDTO todoDTO) {
         if (todoDTO.getId() != null) {
@@ -39,36 +65,15 @@ public class TodoController {
         throw new RuntimeException("No existe el id");
     }
 
+    /**
+     * Elimina el objeto por el id.
+     *
+     * @param id del objeto.
+     */
     @DeleteMapping(value = "api/{id}/todo")
     public void deleteTodo(@PathVariable("id") Long id) {
         todoService.deleteTodo(id);
     }
 
-    /**@Autowired private TodoService service;
-
-     @GetMapping(value = "api/todos")
-     public Iterable<Todo> list() {
-     return service.list();
-     }
-
-     @PostMapping(value = "api/todo")
-     public Todo save(@RequestBody Todo todo) {
-     return service.save(todo);
-     }
-
-     @PutMapping(value = "api/todo")
-     public Todo update(@RequestBody Todo todo) {
-     return service.update(todo);
-     }
-
-     @DeleteMapping(value = "api/{id}/todo")
-     public void delete(@PathVariable("id") Long id) {
-     service.delete(id);
-     }
-
-     @GetMapping(value = "api/{id}/todo")
-     public Todo get(@PathVariable("id") Long id) {
-     return service.get(id);
-     }*/
 
 }

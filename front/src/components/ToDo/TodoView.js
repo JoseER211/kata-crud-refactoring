@@ -2,7 +2,10 @@ import React, { useContext, useEffect } from "react";
 import { Store } from "../../stateManagement/store/StoreProvider";
 import { HOST_API } from "../../App";
 
-//Mapeo de la lista
+/**
+ * Representa la vista y el manejo de los Todos.
+ * @returns Vista de los Todos.
+ */
 const TodoView = () => {
   const {
     dispatch,

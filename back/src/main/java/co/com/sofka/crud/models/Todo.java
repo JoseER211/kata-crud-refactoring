@@ -1,16 +1,20 @@
 package co.com.sofka.crud.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 
 import javax.persistence.*;
 
-
+/**
+ * Representa una entidad Todo.
+ *
+ * @author Jose David Echavarria Ruiz.
+ */
 @Entity
 @Table(name = "todo")
 public class Todo {
 
-    // propiedades de la entidad
+    /**
+     * Propiedades de la entidad Todo.
+     */
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

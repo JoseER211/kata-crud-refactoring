@@ -22,7 +22,6 @@ public class TodoListServiceImpl implements TodoListService {
     @Autowired
     private ConvertDTO mapper;
 
-
     @Override
     public Iterable<TodoListDTO> listAllTodo() {
         ArrayList<TodoListDTO> todoListDTOS = new ArrayList<>();

@@ -1,17 +1,20 @@
 package co.com.sofka.crud.models;
 
 
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
-import java.util.Set;
 
 
+/**
+ * Representa una entidad TodoList.
+ *
+ * @author Jose David Echavarria Ruiz.
+ */
 @Entity
 @Table(name = "todoList")
 public class TodoList {
-
+    /**
+     * Propiedades de TodoList
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)

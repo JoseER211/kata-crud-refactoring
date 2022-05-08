@@ -3,7 +3,10 @@ import { Store } from "../../stateManagement/store/StoreProvider";
 import { HOST_API } from "../../App";
 import TodoForm from "./TodoForm";
 import TodoView from "./TodoView";
-
+/**
+ * Representa la vista y el manejo de la lista de los Todos.
+ * @returns Lista de los Todos
+ */
 const List = () => {
   const {
     state: { todoList },
@@ -26,9 +29,8 @@ const List = () => {
       }).then((todoList) => {
         dispatch({ type: "delete-todoList", id });
       });
-    };
     }
-   
+  };
 
   return (
     <div className="principal-container">
@@ -36,10 +38,9 @@ const List = () => {
         return (
           <div key={todoList.id}>
             <div className="text-center">
-
               <h2>{todoList.name}</h2>
-              </div>
-              <div>
+            </div>
+            <div>
               <button
                 className="btn btn-danger "
                 type="button"
@@ -47,10 +48,9 @@ const List = () => {
               >
                 Eliminar
               </button>
-              </div>
-              
-           
-            <TodoForm ></TodoForm>
+            </div>
+
+            <TodoForm></TodoForm>
             <TodoView></TodoView>
           </div>
         );

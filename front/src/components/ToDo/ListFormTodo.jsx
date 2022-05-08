@@ -1,7 +1,10 @@
 import React, { useContext, useRef, useState } from "react";
 import { Store } from "../../stateManagement/store/StoreProvider";
 import { HOST_API } from "../../App";
-
+/**
+ * Representa la vista y el manejo del formulario de las listas.
+ * @returns Vista del formulario de las listas.
+ */
 const ListFormTodo = () => {
   const formRef = useRef(null);
   const {
